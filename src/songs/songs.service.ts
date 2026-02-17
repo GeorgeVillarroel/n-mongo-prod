@@ -60,9 +60,9 @@ export class SongsService {
   async delete(id: string): Promise<void> {
     try {
       await this.songModel.deleteOne({ _id: id });
+      return;
     } catch (err) {
       throw new NotFoundException(`Song by id of ${id} not found.` + err);
     }
-    return;
   }
 }
